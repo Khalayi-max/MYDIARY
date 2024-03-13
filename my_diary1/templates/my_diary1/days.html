@@ -1,0 +1,15 @@
+{% extends 'my_diary1/base.html' %}
+
+{% block content %}
+<p>Days</p>
+<ul>
+    {% for day in days %}
+    {{day}}
+    {% empty %}
+    <li>No days have been added yet.</li>
+    {% endfor %}
+
+</ul>
+
+
+{% endblock content %}

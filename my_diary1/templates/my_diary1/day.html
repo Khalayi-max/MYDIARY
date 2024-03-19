@@ -1,0 +1,24 @@
+{% extends 'my_diary1/base.html' %}
+
+{% block content %}
+
+<p>Day :  {{day}}</p>
+<p>Thoughts:</p>
+
+<ul>
+    {% for thought in thoughts%}
+    <li>
+        <p>{{thought.date|date:'M d, Y H:i'}}</p>
+        <p>{{thought.text|linebreaks}}</p>
+        <p>
+            <a href="{% url 'my_diary1:edit_thought' thought.id %}">edit thought</a>
+        </p>
+    </li>
+    {% empty %}
+    <li>No thoughts on this particular day!?</li>
+    {% endfor %}
+</ul>
+<p>
+<a href="{%url 'my_diary1:new_thought' day.id %}">Add new thought</a>
+</p>
+{% endblock content %}

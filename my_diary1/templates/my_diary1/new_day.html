@@ -1,0 +1,13 @@
+{% extends 'my_diary1/base.html'%}
+
+{% block content %}
+
+<p>So When is Today?</p>
+
+<form action="{% url 'my_diary1:new_day'%}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">add day</button>
+</form>
+
+{% endblock content%}

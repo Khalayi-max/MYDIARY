@@ -4,12 +4,16 @@
 <p>Days</p>
 <ul>
     {% for day in days %}
-    {{day}}
+    <li>
+        <a href="{% url 'my_diary1:day' day.id %}">{{day}}</a>
+        </li>
     {% empty %}
     <li>No days have been added yet.</li>
     {% endfor %}
 
 </ul>
+
+<a href="{% url 'my_diary1:new_day' %}">Add a new day</a>
 
 
 {% endblock content %}
